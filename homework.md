@@ -69,7 +69,7 @@ INSERT INTO people (name) VALUES ('Sandy McMillan');
 8.  Craig has decided to hijack our movie evening, Remove him from the table of people.
 
 ```sql
-DELETE FROM people WHERE name = 'Craig Morton';
+DELETE FROM people WHERE name ~ 'Craig *';
 ```
 
 9.  The cinema has just heard that they will be holding an exclusive midnight showing of 'Avengers: Infinity War'!! Create a new entry in the 'movies' table to reflect this.
