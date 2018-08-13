@@ -92,5 +92,5 @@ UPDATE movies
 1.  Research how to delete multiple entries from your table in a single command.
 
 ``` sql
-DELETE FROM movies WHERE year = 2008;
+DELETE FROM movies WHERE year = 2008 OR year = 2009;
 ```
