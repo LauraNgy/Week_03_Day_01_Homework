@@ -36,9 +36,11 @@ SELECT name FROM people;
 
 3.  Oops! Someone at CodeClan spelled Graham's name wrong! Change it to reflect the proper spelling ('Graeme Broose' should be 'Graham Bruce').
 
+<!-- NESTED QUERIES, THIS IS THE WAY YOU SHOULD FETCH DATA  -->
 ```sql
 UPDATE people
-  SET name = 'Graeme Bruce'
+  SET name = 'Graham Bruce'
+  -- WHERE id = (SELECT id FROM people WHERE name =  'Graeme Broose')
   WHERE name = 'Graeme Broose';
 ```
 
@@ -57,7 +59,9 @@ SELECT name FROM people WHERE name = 'Laura Nagy'
 6.  The cinema is showing 'Batman Begins', but Batman is DC, not Marvel! Delete the entry from the 'movies' table.
 
 ```sql
-DELETE FROM movies WHERE title = 'Batman Begins';
+DELETE FROM movies
+-- WHERE id = (SELECT id FROM movies WHERE title LIKE '%Batman%')
+WHERE title = 'Batman Begins';
 ```
 
 7.  Create a new entry in the 'people' table with the name of one of the instructors.
@@ -69,7 +73,9 @@ INSERT INTO people (name) VALUES ('Sandy McMillan');
 8.  Craig has decided to hijack our movie evening, Remove him from the table of people.
 
 ```sql
-DELETE FROM people WHERE name ~ 'Craig *';
+DELETE FROM people
+-- WHERE id IN (2,3,5)
+WHERE name ~ 'Craig *';
 ```
 
 9.  The cinema has just heard that they will be holding an exclusive midnight showing of 'Avengers: Infinity War'!! Create a new entry in the 'movies' table to reflect this.
